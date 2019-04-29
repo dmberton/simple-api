@@ -14,7 +14,7 @@ const app = express();
 app.use(helmet());
 app.use(
     session({
-        secret: 'vfsdemo-session',
+        secret: 'simple-api-session',
         resave: false,
         saveUninitialized: true,
         cookie: {
@@ -35,7 +35,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect('mongodb://127.0.0.1:27017/vfsdemo');
+mongoose.connect('mongodb://127.0.0.1:27017/simpleapi');
 
 app.listen(3002 || process.env.PORT, () => {
     console.log("Server running on port 3002");
